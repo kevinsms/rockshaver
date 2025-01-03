@@ -1,16 +1,11 @@
 class PreRegPage {
 
-    go() {
-        cy.visit('/')
-        cy.get('header nav a[href="pre-cadastro"]')
-            .click()
+    fillForm(fullname, email) {
 
         cy.get('form h2')
             .should('be.visible')
             .and('have.text', 'Seus dados')
-    }
 
-    fillForm(fullname,email) {
         cy.get('input[name="fullname"]')
             .type(fullname)
 
@@ -21,6 +16,14 @@ class PreRegPage {
     submit() {
         cy.contains('button[type="submit"]', 'Continuar')
             .click()
+    }
+
+    alertHave(fieldname, text) {
+        cy.contains('label', fieldname)
+            .parent()
+            .find('.alert-msg')
+            .should('be.visible')
+            .and('have.text', text)
     }
 }
 
