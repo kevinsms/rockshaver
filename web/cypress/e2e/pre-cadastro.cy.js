@@ -2,11 +2,6 @@ import prereg from '../support/actions/prereg'
 
 describe('Pré-Cadastro', () => {
   it('Deve realizar o pré-cadastro do cliente', () => {
-    // homePage.go()
-    // homePage.header.goToPreReg()
-    // preRegPage.fillForm('Kevin Silva', 'kevin.msn@hotmail.com')
-    // preRegPage.submit()
-    // homePage.header.verifyPreReg('Kevin', 'kevin.msn@hotmail.com')  
     prereg.start('Kevin Silva', 'kevin.msn@hotmail.com')
     prereg.verify('Kevin','kevin.msn@hotmail.com')
   })
